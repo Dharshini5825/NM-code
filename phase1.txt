@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Page Application</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    header {
+      background-color: #2f8d46;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+    nav {
+      background-color: #4caf50;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 1em;
+      display: block;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #45a049;
+    }
+    #content {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    img {
+      width: 300px;
+      display: block;
+      margin: 10px auto;
+      border-radius: 10px;
+      border: 3px solid #2f8d46;
+    }
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+    }
+    input, textarea, button {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Single Page Application</h1>
+    <p>Pure HTML, CSS, and JavaScript</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#" onclick="changeContent('home')">Home</a></li>
+      <li><a href="#" onclick="changeContent('about')">About</a></li>
+      <li><a href="#" onclick="changeContent('contact')">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div id="content">
+      <h2>Welcome!</h2>
+      <p>This is a simple single-page application that changes content dynamically.</p>
+    </div>
+  </main>
+
+  <script>
+    function changeContent(page) {
+      const content = document.getElementById('content');
+      switch(page) {
+        case 'home':
+          content.innerHTML = `
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/geeksforgeeks-12.png" alt="Home">
+            <h2>Home Page</h2>
+            <p>Welcome to our SPA. Use the navigation bar to move through sections without reloading.</p>
+          `;
+          break;
+        case 'about':
+          content.innerHTML = `
+            <h2>About This App</h2>
+            <p>This is a lightweight SPA made using only HTML, CSS, and vanilla JavaScript.</p>
+            <p>It demonstrates dynamic content rendering and simple routing concepts.</p>
+          `;
+          break;
+        case 'contact':
+          content.innerHTML = `
+            <h2>Contact Us</h2>
+            <form>
+              <input type="text" placeholder="Your Name" required>
+              <input type="email" placeholder="Your Email" required>
+              <textarea placeholder="Your Message" rows="4"></textarea>
+              <button type="submit">Send</button>
+            </form>
+          `;
+          break;
+        default:
+          content.innerHTML = `<h2>404 - Page not found</h2>`;
+      }
+    }
+  </script>
+</body>
+</html>
